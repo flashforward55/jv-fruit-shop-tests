@@ -8,7 +8,6 @@ import core.basesyntax.service.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,8 +26,8 @@ class FileReaderImplTest {
 
     @Test
     void read_existingFile_ok() throws IOException {
-        Path testFile = tempDir.resolve("test.txt");
-        List<String> content = Arrays.asList("line1", "line2", "line3");
+        Path testFile = tempDir.resolve("test.csv");
+        List<String> content = List.of("line1", "line2", "line3");
         Files.write(testFile, content);
 
         List<String> result = fileReader.read(testFile.toString());
@@ -38,7 +37,7 @@ class FileReaderImplTest {
 
     @Test
     void read_emptyFile_ok() throws IOException {
-        Path testFile = tempDir.resolve("empty.txt");
+        Path testFile = tempDir.resolve("empty.csv");
         Files.createFile(testFile);
 
         List<String> result = fileReader.read(testFile.toString());
@@ -48,7 +47,7 @@ class FileReaderImplTest {
 
     @Test
     void read_nonExistentFile_throwsRuntimeException() {
-        String nonExistentFile = tempDir.resolve("nonexistent.txt").toString();
+        String nonExistentFile = tempDir.resolve("nonexistent.csv").toString();
 
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> fileReader.read(nonExistentFile));

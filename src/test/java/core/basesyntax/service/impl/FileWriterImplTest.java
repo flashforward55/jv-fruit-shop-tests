@@ -26,7 +26,7 @@ class FileWriterImplTest {
 
     @Test
     void write_validReport_ok() throws IOException {
-        Path testFile = tempDir.resolve("output.txt");
+        Path testFile = tempDir.resolve("output.csv");
         String report = "fruit,quantity" + System.lineSeparator()
                 + "apple,100" + System.lineSeparator()
                 + "banana,50";
@@ -42,7 +42,7 @@ class FileWriterImplTest {
 
     @Test
     void write_singleLineReport_ok() throws IOException {
-        Path testFile = tempDir.resolve("single.txt");
+        Path testFile = tempDir.resolve("single.csv");
         String report = "fruit,quantity";
 
         fileWriter.write(report, testFile.toString());
@@ -54,7 +54,7 @@ class FileWriterImplTest {
 
     @Test
     void write_invalidPath_throwsRuntimeException() {
-        String invalidPath = "/invalid/path/file.txt";
+        String invalidPath = "/invalid/path/file.csv";
         String report = "test";
 
         RuntimeException exception = assertThrows(RuntimeException.class,
