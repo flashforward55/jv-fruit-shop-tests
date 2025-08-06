@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.service.DataConverter;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,7 @@ class DataConverterImplTest {
 
     @Test
     void convertToTransaction_validData_ok() {
-        List<String> data = Arrays.asList(
+        List<String> data = List.of(
                 "type,fruit,quantity",
                 "b,apple,100",
                 "s,banana,50",
@@ -46,7 +45,7 @@ class DataConverterImplTest {
 
     @Test
     void convertToTransaction_emptyDataWithHeader_ok() {
-        List<String> data = Arrays.asList("type,fruit,quantity");
+        List<String> data = List.of("type,fruit,quantity");
 
         List<FruitTransaction> result = dataConverter.convertToTransaction(data);
 
@@ -55,7 +54,7 @@ class DataConverterImplTest {
 
     @Test
     void convertToTransaction_invalidOperationCode_throwsException() {
-        List<String> data = Arrays.asList(
+        List<String> data = List.of(
                 "type,fruit,quantity",
                 "x,apple,100"
         );
@@ -66,7 +65,7 @@ class DataConverterImplTest {
 
     @Test
     void convertToTransaction_invalidNumberFormat_throwsException() {
-        List<String> data = Arrays.asList(
+        List<String> data = List.of(
                 "type,fruit,quantity",
                 "b,apple,abc"
         );

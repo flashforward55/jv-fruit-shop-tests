@@ -8,7 +8,6 @@ import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.service.ShopService;
 import core.basesyntax.strategy.OperationStrategy;
 import core.basesyntax.strategy.impl.OperationStrategyImpl;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +41,7 @@ class ShopServiceImplTest {
 
     @Test
     void process_multipleTransactions_ok() {
-        List<FruitTransaction> transactions = Arrays.asList(
+        List<FruitTransaction> transactions = List.of(
                 new FruitTransaction("apple", FruitTransaction.Operation.BALANCE, 100),
                 new FruitTransaction("banana", FruitTransaction.Operation.SUPPLY, 50),
                 new FruitTransaction("apple", FruitTransaction.Operation.PURCHASE, 20)
@@ -56,14 +55,14 @@ class ShopServiceImplTest {
 
     @Test
     void process_emptyList_ok() {
-        shopService.process(Arrays.asList());
+        shopService.process(List.of());
 
         assertTrue(Storage.getStorage().isEmpty());
     }
 
     @Test
     void process_singleTransaction_ok() {
-        List<FruitTransaction> transactions = Arrays.asList(
+        List<FruitTransaction> transactions = List.of(
                 new FruitTransaction("orange", FruitTransaction.Operation.BALANCE, 75)
         );
 
@@ -75,7 +74,7 @@ class ShopServiceImplTest {
 
     @Test
     void process_allOperationTypes_ok() {
-        List<FruitTransaction> transactions = Arrays.asList(
+        List<FruitTransaction> transactions = List.of(
                 new FruitTransaction("apple", FruitTransaction.Operation.BALANCE, 100),
                 new FruitTransaction("apple", FruitTransaction.Operation.SUPPLY, 30),
                 new FruitTransaction("apple", FruitTransaction.Operation.PURCHASE, 40),
