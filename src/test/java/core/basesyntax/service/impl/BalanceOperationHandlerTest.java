@@ -15,7 +15,6 @@ class BalanceOperationHandlerTest {
     @BeforeEach
     void setUp() {
         handler = new BalanceOperationHandler();
-        Storage.getStorage().clear();
     }
 
     @AfterEach
@@ -54,5 +53,3 @@ class BalanceOperationHandlerTest {
         assertEquals(0, Storage.getStorage().get("apple"));
     }
 }
-
-

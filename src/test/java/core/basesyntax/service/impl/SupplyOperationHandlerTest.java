@@ -15,7 +15,6 @@ class SupplyOperationHandlerTest {
     @BeforeEach
     void setUp() {
         handler = new SupplyOperationHandler();
-        Storage.getStorage().clear();
     }
 
     @AfterEach
@@ -55,4 +54,3 @@ class SupplyOperationHandlerTest {
         assertEquals(100, Storage.getStorage().get("apple"));
     }
 }
-

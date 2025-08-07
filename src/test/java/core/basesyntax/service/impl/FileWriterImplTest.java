@@ -14,10 +14,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 class FileWriterImplTest {
-    private FileWriter fileWriter;
-
     @TempDir
     private Path tempDir;
+
+    private FileWriter fileWriter;
 
     @BeforeEach
     void setUp() {
@@ -27,8 +27,10 @@ class FileWriterImplTest {
     @Test
     void write_validReport_ok() throws IOException {
         Path testFile = tempDir.resolve("output.csv");
-        String report = "fruit,quantity" + System.lineSeparator()
-                + "apple,100" + System.lineSeparator()
+        String report = "fruit,quantity"
+                + System.lineSeparator()
+                + "apple,100"
+                + System.lineSeparator()
                 + "banana,50";
 
         fileWriter.write(report, testFile.toString());

@@ -16,7 +16,6 @@ class ReportGeneratorImplTest {
     @BeforeEach
     void setUp() {
         reportGenerator = new ReportGeneratorImpl();
-        Storage.getStorage().clear();
     }
 
     @AfterEach
@@ -54,4 +53,5 @@ class ReportGeneratorImplTest {
         assertEquals(expected, result);
     }
 }
+
 

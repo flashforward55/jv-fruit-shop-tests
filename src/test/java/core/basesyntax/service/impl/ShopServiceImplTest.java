@@ -21,8 +21,6 @@ class ShopServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        Storage.getStorage().clear();
-
         Map<FruitTransaction.Operation, core.basesyntax.service.OperationHandler>
                 handlers = new HashMap<>();
         handlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperationHandler());

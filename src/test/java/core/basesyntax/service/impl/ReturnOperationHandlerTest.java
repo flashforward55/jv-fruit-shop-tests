@@ -15,7 +15,6 @@ class ReturnOperationHandlerTest {
     @BeforeEach
     void setUp() {
         handler = new ReturnOperationHandler();
-        Storage.getStorage().clear();
     }
 
     @AfterEach
@@ -55,3 +54,4 @@ class ReturnOperationHandlerTest {
         assertEquals(100, Storage.getStorage().get("apple"));
     }
 }
+

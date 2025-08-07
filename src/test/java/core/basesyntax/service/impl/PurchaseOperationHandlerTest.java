@@ -15,7 +15,6 @@ class PurchaseOperationHandlerTest {
     @BeforeEach
     void setUp() {
         handler = new PurchaseOperationHandler();
-        Storage.getStorage().clear();
     }
 
     @AfterEach
